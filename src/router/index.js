@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import EventDetails from '@/views/event/Details.vue'
-import  EventLayout from  '@/views/event/Layout.vue'
+import EventLayout from '@/views/event/Layout.vue'
 import EventAirline from '@/views/event/Airline.vue'
+import NotFound from '@/views/event/NotFound.vue'
 
 const routes = [
   {
@@ -22,29 +23,37 @@ const routes = [
   },
 
   {
-    
-    path: '/event/:id',
+    path: '/passenger/:id',
     name: 'EventLayout',
     props: true,
     component: EventLayout,
-    children:[ 
-  {
-    path: '',
-    name: 'EventDetails',
-    component: EventDetails,
-    props: true
-  },
-  {
-    path: 'airline',
-    name: 'EventAirline',
-    component: EventAirline,
-    props: true
-  },
-
-
+    children: [
+      {
+        path: '',
+        name: 'EventDetails',
+        component: EventDetails,
+        props: true
+      },
+      {
+        path: 'airline',
+        name: 'EventAirline',
+        component: EventAirline,
+        props: true
+      }
     ]
-  }
+  },
+  {
+    path: '/404/:resource',
+    name: '404Resource',
+    component: NotFound,
+    props: true
+  },
 
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: NotFound
+  }
 ]
 
 const router = createRouter({

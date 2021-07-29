@@ -1,7 +1,7 @@
 <template>
   <router-link
     class="event-link"
-    :to="{ name: 'EventDetails', params: { id: event._id }}"
+    :to="{ name: 'EventDetails', params: { id: event._id } }"
   >
     <div class="event-card">
       <span>{{ event.name }}</span>
@@ -9,7 +9,6 @@
     </div>
   </router-link>
 </template>
-
 
 <script>
 export default {

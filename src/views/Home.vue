@@ -1,13 +1,8 @@
-
 <template>
   <h1>Events For Good</h1>
   <div class="events">
     <EventCard v-for="event in events" :key="event._id" :event="event" />
-    
   </div>
-
-  
-    
 </template>
 
 <script>
@@ -40,25 +35,24 @@ export default {
   created() {
     watchEffect(() => {
       PassengerService.getEvents(this.perPage, this.page)
-      .then((response) => {
-        this.events = response.data.data
-        this.totalEvents = response.headers['x-total-count'] //Store it
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+        .then((response) => {
+          this.events = response.data.data
+          this.totalEvents = response.headers['x-total-count'] //Store it
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     })
   },
   computed: {
     hasNextPage() {
       // First, calculate total page
       let totalPages = Math.ceil(this.totalEvents / 2) //2 is events per page
-      
+
       // Then check to see if the current page is less than the total pages.
       return this.page < totalPages
     }
   }
-
 }
 </script>
 <style scoped>
@@ -76,7 +70,7 @@ export default {
 .pagination a {
   flex: 1;
   text-decoration: none;
-  color:#2c3e50;
+  color: #2c3e50;
 }
 
 #page-prev {

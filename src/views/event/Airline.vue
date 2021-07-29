@@ -1,9 +1,9 @@
 <template>
-    <p>{{ event.airline.name}}</p>
+  <p>{{ event.airline.name }}</p>
 </template>
 
 <script>
 export default {
-    props:['event']
+  props: ['event']
 }
 </script>
