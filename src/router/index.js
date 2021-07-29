@@ -1,12 +1,12 @@
-import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue"
-
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
+import About from '../views/About.vue'
+import EventDetails from '../views/EventDetails.vue'
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
     props: (route) => ({
       page: parseInt(route.query.page) || 0,
@@ -14,19 +14,22 @@ const routes = [
     })
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      About,
+    path: '/about',
+    name: 'About',
+    component: About
   },
-];
+
+  {
+    path: '/passenger/:id',
+    name: 'EventDetails',
+    component: EventDetails,
+    props: true
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router

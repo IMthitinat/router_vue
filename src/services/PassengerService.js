@@ -14,7 +14,7 @@ export default {
     return apiClient.get('/passenger?page='+ page + '&size=' + perPage)
   },
   //added new call
-  getpassenger(id) {
+  getPassenger(id) {
     return apiClient.get('/passenger/' + id)
   }
 }
