@@ -23,7 +23,7 @@ export default {
       type: Number,
       required: true
     },
-    moredata: {
+    perPage: {
       type: Number,
       required: true
     }
@@ -39,7 +39,7 @@ export default {
   },
   created() {
     watchEffect(() => {
-      PassengerService.getEvents(this.moredata, this.page)
+      PassengerService.getEvents(this.perPage, this.page)
       .then((response) => {
         this.events = response.data.data
         this.totalEvents = response.headers['x-total-count'] //Store it
