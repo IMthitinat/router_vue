@@ -1,13 +1,14 @@
 <template>
   <div v-if="event">
-    <img :src="event.airline.logo" />
+    <!-- <img :src="event.airline.logo" />
     <img
       v-for="airline in event.airline"
       :key="airline.id"
       :src="airline.logo"
-    />
+    /> -->
     <h1>Name: {{ event.name }}</h1>
-    <div v-if="check">
+     <p>Trips: {{ event.trips }}</p>
+    <!-- <div v-if="check">
       <h3>{{ event.airline.country }}</h3>
       <h5>{{ event.airline.head_quaters }}</h5>
       <p>{{ event.airline.website }}</p>
@@ -20,7 +21,7 @@
         <h5>{{ airline.head_quaters }}</h5>
         <p>{{ airline.website }}</p>
       </span>
-    </div>
+    </div> -->
   </div>
 </template>
 
